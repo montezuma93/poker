@@ -1,4 +1,4 @@
-package com.daa.poker.domain;
+package com.daa.poker.game;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;

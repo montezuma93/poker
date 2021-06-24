@@ -1,18 +1,25 @@
 package com.daa.poker;
 
-import com.daa.poker.controller.GameController;
-import com.daa.poker.domain.Game;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.daa.poker.game.Game;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-@EnableWebMvc
 @SpringBootApplication
-public class PokerApplication {
+public class PokerApplication implements CommandLineRunner {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PokerApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PokerApplication.class, args);
+    }
 
+    @Override
+    public void run(String... args) throws Exception {
+        Game game = new Game();
+        game.startGame();
+
+        while (!game.gameIsOver()) {
+
+            System.out.println("NEXT MOVE");
+        }
+    }
 }
